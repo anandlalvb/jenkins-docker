@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  jenkins-master-service:
+    build: .
+    image: rapid_value_jenkins:0.1
+    container_name: jenkins-master
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - jenkins_network
+    env_file: env.list
+#  jenkins-slave-service:
+#    build: ./slave
+#    image: rapid_value_jenkins_slave:0.1
+#    container_name: jenkins-slave
+#    depends_on:
+#      - jenkins-master-service
+#    networks:
+#      - jenkins_network
+#    command: -url http://localhost:8080 secret123 agent123
+
+networks:
+  jenkins_network:
