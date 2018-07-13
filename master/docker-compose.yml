@@ -11,6 +11,9 @@ services:
     networks:
       - jenkins_network
     env_file: env.list
+    volumes:
+      # Path on the host, relative to the Compose file using SHORT SYNTAX
+      - ./jobs:/var/jenkins_home/jobs
 #  jenkins-slave-service:
 #    build: ./slave
 #    image: rapid_value_jenkins_slave:0.1

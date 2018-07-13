@@ -1,8 +1,0 @@
-version: "3"
-services:
-  jenkins-master-service:
-    build: .
-    image: rapid_value_jenkins:0.1
-    container_name: jenkins-master
-    ports:
-      - "8080:8080"
