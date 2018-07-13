@@ -4,7 +4,7 @@ services:
   jenkins-master-service:
     build: .
     image: rapid_value_jenkins:0.1
-    container_name: jenkins-master
+    container_name: rapidvalue-jenkins-master
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -17,7 +17,7 @@ services:
 #  jenkins-slave-service:
 #    build: ./slave
 #    image: rapid_value_jenkins_slave:0.1
-#    container_name: jenkins-slave
+#    container_name: rapidvalue-jenkins-slave
 #    depends_on:
 #      - jenkins-master-service
 #    networks:
