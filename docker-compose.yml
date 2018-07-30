@@ -2,7 +2,7 @@ version: "3"
 
 services:
   jenkins-master-service:
-    build: .
+    build: ./master
     image: rapid_value_jenkins:0.1
     container_name: rapidvalue-jenkins-master
     ports:
@@ -10,10 +10,13 @@ services:
       - "50000:50000"
     networks:
       - jenkins_network
-    env_file: env.list
+    env_file: ./master/env.list
     volumes:
+      - jenkins_home:/var/jenkins_home
+#      - ./master/data:/var/jenkins_home
+#    volumes:
       # Path on the host, relative to the Compose file using SHORT SYNTAX
-      - ./jobs:/var/jenkins_home/jobs
+#      - ./master/jobs:/var/jenkins_home/jobs
 #  jenkins-slave-service:
 #    build: ./slave
 #    image: rapid_value_jenkins_slave:0.1
@@ -26,3 +29,5 @@ services:
 
 networks:
   jenkins_network:
+volumes:
+   jenkins_home:
